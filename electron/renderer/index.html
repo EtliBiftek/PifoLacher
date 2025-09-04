@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PifoLacher - Version 0.1.1 (Beta)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="window">
+      <header class="header">
+        <nav class="nav">
+          <button id="tabPlay" class="tab active">Play</button>
+          <button id="tabInstall" class="tab">Version Download</button>
+        </nav>
+        <div class="logo">Minecraft: Java Edition</div>
+        <div class="header-right hidden">
+          <span class="dir" id="mcDir">.minecraft</span>
+        </div>
+      </header>
+      <main class="content" id="viewPlay">
+        <section class="news">
+          <div class="news-header">Updates</div>
+          <div class="news-body">
+            <div class="card">
+              <div class="card-title">Some Optimization - Version 0.1.1 (Beta)</div>
+              <div class="card-desc">-Add English language.</div>
+              <div class="card-desc">-A few optimization updates.</div>
+              <div class="card-desc">-Some of the game's crash issues have been fixed.</div>
+              <div class="card-desc">-If the game crashes and closes, it now provides an error log.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Bug Fixes - Version 0.1 (Beta)</div>
+              <div class="card-desc">-Discord RPC bug fix.</div>
+              <div class="card-desc">-Multiplayer crasher fix.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Discord RPC - Version 0.0.6 (Alpha)</div>
+              <div class="card-desc">-Add Discord RPC.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Ram Limit - Version 0.0.5 (Alpha)</div>
+              <div class="card-desc">-The ability to allocate as much RAM to the game as the user desires has been added.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Nickname - Version 0.0.4 (Alpha)</div>
+              <div class="card-desc">-The nickname was adapted to the game.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Game Start - Version 0.0.3 (Alpha)</div>
+              <div class="card-desc">-Being able to start the game properly.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Version Downloads - Version 0.0.2 (Alpha)</div>
+              <div class="card-desc">-Download the version from official servers.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Create UI - Version 0.0.1 (Alpha)</div>
+              <div class="card-desc">-Create UI for the launcher.</div>
+            </div>
+          </div>
+        </section>
+        <aside class="panel">
+          <div class="panel-section">
+            <div class="panel-title">WARNING</div>
+            <div class="panel-body">If you receive a JNI error when running the game, you need to install Java 21. You can download it from the link below.</div>
+            <div class="panel-body">ㅤ</div>
+            <div class="panel-body">https://adoptium.net/temurin/releases/?version=21</div>
+            <div class="panel-body">ㅤ</div>
+            <div class="panel-body">ㅤ</div>
+            <div class="panel-body">The launcher is still unstable on Fabric and Forge! You may encounter many errors when launching the game. Until the errors are fixed, only play the Release versions.</div>
+          </div>
+          <div class="panel-section compact">
+            <button id="toggleLogs" class="link">Show Logs</button>
+          </div>
+        </aside>
+      </main>
+
+      <main class="content hidden" id="viewInstall">
+        <section class="news">
+          <div class="news-header">Download</div>
+          <div class="news-body install-body">
+            <div class="field-column">
+              <label>Name</label>
+              <input id="installName" placeholder="Download name (optional)" />
+            </div>
+            <div class="field-column">
+              <label>Version</label>
+              <select id="installVersion"></select>
+            </div>
+            <div class="field-column center">
+              <label>Download Throttle (KB/s)</label>
+              <input id="installThrottle" type="number" min="0" step="1" placeholder="0 = unlimited" />
+            </div>
+            <div>
+              <button id="installDo" class="play">Version Download</button>
+              <div id="installToast" class="toast hidden">Download started!</div>
+            </div>
+            <div id="installProgressWrap" class="progress-wrap hidden">
+              <div id="installProgress" class="progress"></div>
+              <div class="stats">
+                <span id="bytesStats"></span>
+                <span id="speedStats"></span>
+              </div>
+              <div class="limiter center">
+                <button id="installDone" class="secondary hidden">Download finished!</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <section id="logPanel" class="log-panel hidden">
+        <pre id="log" class="log"></pre>
+      </section>
+
+      <footer class="action-bar">
+        <div class="left-group">
+          <label for="username">Player Name</label>
+          <input id="username" placeholder="Enter player name" />
+        </div>
+        <div class="middle-group">
+          <div class="field">
+            <label for="versions">Version</label>
+            <select id="versions"></select>
+          </div>
+          <div class="field">
+            <label for="memory">RAM (MB)</label>
+            <input id="memory" type="number" value="2048" />
+          </div>
+        </div>
+        <div class="spacer"></div>
+        <div class="right-group">
+          <button id="install" class="secondary hidden">Version Download</button>
+          <button id="play" class="play">PLAY</button>
+        </div>
+      </footer>
+    </div>
+    <script src="renderer.js"></script>
+  </body>
+  </html>
+
+

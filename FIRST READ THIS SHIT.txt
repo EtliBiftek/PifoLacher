@@ -1,0 +1,3 @@
+To make the necessary downloads:
+
+cd "your launcher diractory"; npm ci
