@@ -171,7 +171,7 @@ const RPC = require('discord-rpc');
 const discordClientId = '1412969394291740784'; // placeholder, replace with your application id
 RPC.register(discordClientId);
 const RPC_BUTTONS = [
-  { label: 'Download PifoLacher (SOON)', url: 'https://github.com/EtliBiftek/PifoLacher' },
+  { label: 'Download PifoLacher', url: 'https://github.com/EtliBiftek/PifoLacher' },
   { label: 'Pifo′s About', url: 'https://etlibiftek.github.io/About/' },
 ];
 async function initRPC() {
